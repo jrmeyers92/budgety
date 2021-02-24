@@ -1,21 +1,24 @@
 import React from "react";
 import ProgressBar from "./ProgressBar";
+import "./Budget.css";
 
-const Budget = () => {
+const Budget = (props) => {
 	return (
 		<div className='budget'>
 			<div className='budget__text'>
 				<div className='budget__text-left'>
-					<span>Group: </span>
-					<span>Name</span>
+					<span>
+						<strong>{props.group}: </strong>
+					</span>
+					<span>{props.name}</span>
 				</div>
 				<div className='budget__text-right'>
 					<span>
-						<span>spent</span> of <span>Budget</span>
+						<span>{props.spent} </span> of <span> {props.budget}</span>
 					</span>
 				</div>
 			</div>
-			<ProgressBar />
+			<ProgressBar spent={props.spent} budget={props.budget} />
 		</div>
 	);
 };

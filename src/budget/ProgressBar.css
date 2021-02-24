@@ -1,3 +1,7 @@
+.progressBar {
+	margin-bottom: 1rem;
+}
+
 .progressBar__grayBar {
 	background-color: rgb(221, 221, 221);
 	width: 350px;
