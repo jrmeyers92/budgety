@@ -14,7 +14,7 @@ const Budget = (props) => {
 				</div>
 				<div className='budget__text-right'>
 					<span>
-						<span>{props.spent} </span> of <span> {props.budget}</span>
+						<span>${props.spent} </span> of <span> ${props.budget}</span>
 					</span>
 				</div>
 			</div>

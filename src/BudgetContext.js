@@ -22,6 +22,12 @@ export const BudgetProvider = ({ children }) => {
 			budget: 1000,
 			spent: 0,
 		},
+		{
+			group: "transportation",
+			name: "gas",
+			budget: 90,
+			spent: 40,
+		},
 	]);
 
 	return (

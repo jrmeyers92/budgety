@@ -5,3 +5,12 @@
 	margin-left: auto;
 	margin-right: auto;
 }
+
+.budgets__createBudget {
+	margin: 1rem;
+}
+
+.link {
+	text-decoration: none;
+	color: inherit;
+}
