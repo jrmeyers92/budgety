@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
+import Budget from "./Budget";
 
-const budget = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+const Budgets = () => {
+	return (
+		<div>
+			<Budget />
+		</div>
+	);
+};
 
-export default budget
+export default Budgets;
