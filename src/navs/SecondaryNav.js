@@ -1,7 +1,7 @@
 import React from "react";
 import { AppBar, Toolbar, Button, Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
 	appBar: {
@@ -21,8 +21,16 @@ const SecondaryNav = () => {
 			<AppBar position='relative' className={classes.appBar}>
 				<Toolbar align='center'>
 					<Grid container direction='row' justify='center' alignItems='center'>
-						<Button>Transactions</Button>
-						<Button>Budgets</Button>
+						<Button>
+							<Link to='/transactions' className='link'>
+								Transactions
+							</Link>
+						</Button>
+						<Button>
+							<Link to='/' className='link'>
+								Budgets
+							</Link>
+						</Button>
 					</Grid>
 				</Toolbar>
 			</AppBar>

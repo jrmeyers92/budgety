@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import Budget from "./Budget";
 import { BudgetContext } from "../BudgetContext";
 import "./Budgets.css";
@@ -16,7 +16,7 @@ const useStyles = makeStyles(() => ({
 const Budgets = () => {
 	const classes = useStyles();
 
-	const [expenses, setExpenses] = useContext(BudgetContext);
+	const [expenses] = useContext(BudgetContext);
 	return (
 		<div className='budgets'>
 			<Paper>
