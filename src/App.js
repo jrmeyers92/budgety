@@ -20,7 +20,7 @@ function App() {
 						<Route path='/' exact>
 							<Budgets />
 						</Route>
-						<Route to='/createBudget'>
+						<Route path='/createBudget' exact>
 							<CreateBudget />
 						</Route>
 					</BudgetProvider>
