@@ -2,6 +2,7 @@ import { Button, Paper, TextField, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import React, { useState, useContext } from "react";
 import { BudgetContext } from "./BudgetContext";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
 	paper: {
@@ -30,16 +31,18 @@ const CreateBudget = () => {
 
 	const [expenses, setExpenses] = useContext(BudgetContext);
 
-	const addBudget = () => {
-		setExpenses(...expenses, {
-			group: catagory,
-			name: name,
-			budget: amount,
-			spent: 0,
-		});
-
-		console.log(expenses);
+	const addBudget = (e) => {
+		e.preventDefault();
+		setExpenses((prevExpenses) => [
+			...prevExpenses,
+			{ group: catagory, name: name, budget: amount, spent: 0 },
+		]);
+		setCatagory("");
+		setName("");
+		setAmount("");
 	};
+
+	console.log(expenses[4]);
 
 	return (
 		<div>
@@ -47,7 +50,7 @@ const CreateBudget = () => {
 				<Typography variant='h5' className={classes.header}>
 					Create a Budget
 				</Typography>
-				<form className={classes.form}>
+				<form className={classes.form} onSubmit={addBudget}>
 					<TextField
 						label='Choose a catagory'
 						id='budgetCatagory'
@@ -69,7 +72,10 @@ const CreateBudget = () => {
 						value={amount}
 						onChange={(e) => setAmount(e.target.value)}
 					/>
-					<Button onClick={addBudget}>Create Budget</Button>
+
+					<Button type='submit'>
+						<Link to='/'>Create Budget</Link>
+					</Button>
 				</form>
 			</Paper>
 		</div>
