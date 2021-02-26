@@ -8,25 +8,25 @@ export const BudgetProvider = ({ children }) => {
 			group: "utilities",
 			name: "electric",
 			budget: 150,
-			spent: 134,
+			spent: null,
 		},
 		{
 			group: "bills",
 			name: "cell phone",
 			budget: 50,
-			spent: 50,
+			spent: null,
 		},
 		{
 			group: "housing",
 			name: "rent",
 			budget: 1000,
-			spent: 0,
+			spent: null,
 		},
 		{
 			group: "transportation",
 			name: "gas",
 			budget: 90,
-			spent: 40,
+			spent: null,
 		},
 	]);
 

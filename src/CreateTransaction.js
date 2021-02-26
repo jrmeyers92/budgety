@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/styles";
 import React, { useState, useContext } from "react";
 import { BudgetContext } from "./BudgetContext";
 import { Link } from "react-router-dom";
+import DatePicker from "./DatePicker";
 
 const useStyles = makeStyles(() => ({
 	paper: {
@@ -23,7 +24,7 @@ const useStyles = makeStyles(() => ({
 	},
 }));
 
-const CreateBudget = () => {
+const CreateTransaction = () => {
 	const classes = useStyles();
 	const [catagory, setCatagory] = useState("");
 	const [name, setName] = useState("");
@@ -48,7 +49,7 @@ const CreateBudget = () => {
 		<div>
 			<Paper className={classes.paper}>
 				<Typography variant='h5' className={classes.header}>
-					Create a Budget
+					Create a Transaction
 				</Typography>
 				<form className={classes.form}>
 					<TextField
@@ -66,16 +67,27 @@ const CreateBudget = () => {
 						onChange={(e) => setName(e.target.value)}
 					/>
 					<TextField
-						label='Amount'
+						label='Amount Spent'
 						type='number'
 						className={classes.textField}
 						id='budgetAmount'
 						value={amount}
 						onChange={(e) => setAmount(e.target.value)}
 					/>
+					<TextField
+						label='Amount Spent'
+						type='number'
+						className={classes.textField}
+						id='budgetAmount'
+						value={amount}
+						onChange={(e) => setAmount(e.target.value)}
+					/>
+					<DatePicker />
 
 					<Button type='submit' onClick={addBudget}>
-						<Link to='/'>Create Budget</Link>
+						<Link to='/' className='link'>
+							Create Budget
+						</Link>
 					</Button>
 				</form>
 			</Paper>
@@ -83,4 +95,4 @@ const CreateBudget = () => {
 	);
 };
 
-export default CreateBudget;
+export default CreateTransaction;
