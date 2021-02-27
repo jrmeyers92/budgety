@@ -1,6 +1,6 @@
 import { Button, Paper, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { TransactionsContext } from "../TransactionsContext";
 import TransactionGroup from "./TransactionGroup";
 import TransactionName from "./TransactionName";
@@ -71,7 +71,9 @@ const Transactions = () => {
 					})}
 				</table>
 				<Button variant='outlined' size='small' className={classes.button}>
-					<Link to='/createtransaction'>Add Transaction</Link>
+					<Link to='/createtransaction' className='link'>
+						Add Transaction
+					</Link>
 				</Button>
 			</Paper>
 		</div>

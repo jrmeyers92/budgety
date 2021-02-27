@@ -1,7 +1,7 @@
 import { Button, Paper, TextField, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
-import React, { useState, useContext } from "react";
-import { BudgetContext } from "./BudgetContext";
+import React from "react";
+
 import { Link } from "react-router-dom";
 import DatePicker from "./DatePicker";
 
@@ -26,24 +26,6 @@ const useStyles = makeStyles(() => ({
 
 const CreateTransaction = () => {
 	const classes = useStyles();
-	const [catagory, setCatagory] = useState("");
-	const [name, setName] = useState("");
-	const [amount, setAmount] = useState("");
-
-	const [expenses, setExpenses] = useContext(BudgetContext);
-
-	const addBudget = (e) => {
-		e.preventDefault();
-		setExpenses((prevExpenses) => [
-			...prevExpenses,
-			{ group: catagory, name: name, budget: amount, spent: 0 },
-		]);
-		setCatagory("");
-		setName("");
-		setAmount("");
-	};
-
-	console.log(expenses[4]);
 
 	return (
 		<div>
@@ -52,39 +34,18 @@ const CreateTransaction = () => {
 					Create a Transaction
 				</Typography>
 				<form className={classes.form}>
-					<TextField
-						label='Choose a catagory'
-						id='budgetCatagory'
-						onChange={(e) => {
-							setCatagory(e.target.value);
-						}}
-						value={catagory}
-					/>
-					<TextField
-						label='Choose a name'
-						id='budgetName'
-						value={name}
-						onChange={(e) => setName(e.target.value)}
-					/>
+					<TextField label='Choose a catagory' id='transactionCatagory' />
+					<TextField label='Choose a name' id='transactionName' />
 					<TextField
 						label='Amount Spent'
 						type='number'
 						className={classes.textField}
-						id='budgetAmount'
-						value={amount}
-						onChange={(e) => setAmount(e.target.value)}
+						id='transactionAmount'
 					/>
-					<TextField
-						label='Amount Spent'
-						type='number'
-						className={classes.textField}
-						id='budgetAmount'
-						value={amount}
-						onChange={(e) => setAmount(e.target.value)}
-					/>
-					<DatePicker />
 
-					<Button type='submit' onClick={addBudget}>
+					<DatePicker id='transactionDate' />
+
+					<Button type='submit'>
 						<Link to='/' className='link'>
 							Create Budget
 						</Link>
