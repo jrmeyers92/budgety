@@ -21,22 +21,34 @@ const Budgets = () => {
 	const [expenses] = useContext(BudgetContext);
 
 	const spentAmount = [];
-
 	for (let i = 0; i < transactions.length; i++) {
 		for (let j = 0; j < expenses.length; j++) {
 			if (
 				expenses[j].name === transactions[i].name &&
 				expenses[j].group === transactions[i].group
 			) {
-				spentAmount.push({
-					name: transactions[i].name,
-					spent: transactions[i].spent,
-					group: transactions[i].group,
-					budget: expenses[j].budget,
-				});
+				for (let k = 0; k < spentAmount.length; k++) {
+					if (spentAmount[k].name === expenses[j].name && )
+				}
 			}
 		}
 	}
+
+	// for (let i = 0; i < transactions.length; i++) {
+	// 	for (let j = 0; j < expenses.length; j++) {
+	// 		if (
+	// 			expenses[j].name === transactions[i].name &&
+	// 			expenses[j].group === transactions[i].group
+	// 		) {
+	// 			spentAmount.push({
+	// 				name: transactions[i].name,
+	// 				spent: transactions[i].spent,
+	// 				group: transactions[i].group,
+	// 				budget: expenses[j].budget,
+	// 			});
+	// 		}
+	// 	}
+	// }
 
 	console.log(spentAmount);
 
