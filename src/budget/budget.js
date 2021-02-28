@@ -3,6 +3,8 @@ import ProgressBar from "./ProgressBar";
 import "./Budget.css";
 
 const Budget = (props) => {
+
+	
 	return (
 		<div className='budget'>
 			<div className='budget__text'>

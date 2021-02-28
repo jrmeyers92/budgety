@@ -5,6 +5,7 @@ import "./Budgets.css";
 import { Button, Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
+import { TransactionsContext } from "../TransactionsContext";
 
 const useStyles = makeStyles(() => ({
 	button: {
@@ -16,7 +17,29 @@ const useStyles = makeStyles(() => ({
 const Budgets = () => {
 	const classes = useStyles();
 
+	const [transactions] = useContext(TransactionsContext);
 	const [expenses] = useContext(BudgetContext);
+
+	const spentAmount = [];
+
+	for (let i = 0; i < transactions.length; i++) {
+		for (let j = 0; j < expenses.length; j++) {
+			if (
+				expenses[j].name === transactions[i].name &&
+				expenses[j].group === transactions[i].group
+			) {
+				spentAmount.push({
+					name: transactions[i].name,
+					spent: transactions[i].spent,
+					group: transactions[i].group,
+					budget: expenses[j].budget,
+				});
+			}
+		}
+	}
+
+	console.log(spentAmount);
+
 	return (
 		<div className='budgets'>
 			<Paper>
@@ -26,7 +49,7 @@ const Budgets = () => {
 					</Link>
 				</Button>
 
-				{expenses.map((expense) => {
+				{spentAmount.map((expense) => {
 					return (
 						<Budget
 							group={expense.group}
